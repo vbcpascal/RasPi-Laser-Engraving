@@ -25,7 +25,7 @@ SECRET_KEY = 'to*#$af+_@pipwll%(m0%h)#&j3b-2+5eh=hnvu6_btx0l=c_c'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
