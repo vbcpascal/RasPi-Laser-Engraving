@@ -1,2 +1,5 @@
 
 server/db.sqlite3
+*.png
+ReadPic.py
+*.sqlite3
