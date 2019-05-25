@@ -1,0 +1,53 @@
+<html>
+
+<head>
+    <title>
+        激光雕刻图片上传
+    </title>
+
+    <style>
+        button[type=submit] {
+            width: 100%;
+            background-color: #4CAF50;
+            color: white;
+            padding: 14px 20px;
+            margin: 8px 0;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button[type=submit]:hover {
+            background-color: #45a049;
+        }
+
+        div {
+            margin: auto;
+            width: 50%;
+            border-radius: 10px;
+            background-color: #f2f2f2;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>激光雕刻机图片上传</h1>
+    <div>
+        <form enctype="multipart/form-data" action="{% url "index" %}" method="POST">
+            {% csrf_token %}
+
+            请确保以下任务已完成：<br><br>
+            1.上传图片；<br><br>
+            2.暂无打印任务；<br><br>
+            3.激光头恢复到初始位置。<br><br>
+            <button type="submit" value="Login">确认打印</button>
+        </form>
+    </div>
+</body>
+
+</html>
