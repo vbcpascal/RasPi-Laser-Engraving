@@ -4,4 +4,8 @@ server/db.sqlite3
 ReadPic.py
 *.sqlite3
 *.npy
+*.png
 *.jpg
+*.sqlite3
+*.sqlite3
+*.png
