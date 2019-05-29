@@ -9,9 +9,10 @@ import time
 __author__ = 'vbcpascal'
 __version__ = '0.1'
 
+
 class LaserCtrl(object):
     def __init__(self, pin_pwm=None, frequency=50,
-        gpio_mode="BOARD"):
+                 gpio_mode="BOARD"):
         self.pin_pwm = pin_pwm
         self.frequency = frequency
 
@@ -27,22 +28,24 @@ class LaserCtrl(object):
 
     def ChangeDutyCycle(self, i):
         self.p.ChangeDutyCycle(i)
- 
+
     def finish(self):
         self.p.ChangeDutyCycle(0)
         self.p.stop()
+
 
 if __name__ == '__main__':
     p = LaserCtrl(pin_pwm=12)
     max_range = 30
     wait_time = 0.1
 
+    time.sleep(10)
     try:
+
         while True:
             i = int(input('power: '))
             p.ChangeDutyCycle(i)
 
-        '''
         while True:
             for i in range(0, max_range + 1, 5):
                 print(i)
@@ -52,7 +55,7 @@ if __name__ == '__main__':
                 print(i)
                 p.ChangeDutyCycle(i)
                 time.sleep(wait_time)
-        '''
+
     except KeyboardInterrupt:
         print('close')
         p.ChangeDutyCycle(0)
