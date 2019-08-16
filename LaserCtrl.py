@@ -9,6 +9,9 @@ import time
 __author__ = 'vbcpascal'
 __version__ = '0.1'
 
+OPENED = True
+CLOSED = False
+
 
 class LaserCtrl(object):
     def __init__(self, pin_pwm=None, frequency=50,
@@ -26,12 +29,34 @@ class LaserCtrl(object):
             self.p = gpio.PWM(pin_pwm, frequency)     # set frequency
             self.p.start(0)
 
-    def ChangeDutyCycle(self, i):
+        self.status = CLOSED
+
+    def open(self):
+        self.__change_duty_cycle(70)
+        self.status = OPENED
+
+    def close(self):
+        self.__change_duty_cycle(0)
+        self.status = CLOSED
+
+    def get_status(self):
+        return self.status
+
+    def __change_duty_cycle(self, i):
         self.p.ChangeDutyCycle(i)
 
     def finish(self):
         self.p.ChangeDutyCycle(0)
         self.p.stop()
+
+    def test(self):
+        try:
+            while True:
+                i = int(input('power: '))
+                self.__change_duty_cycle(i)
+        except KeyboardInterrupt:
+            print('close')
+            self.finish()
 
 
 if __name__ == '__main__':
@@ -39,24 +64,4 @@ if __name__ == '__main__':
     max_range = 30
     wait_time = 0.1
 
-    time.sleep(10)
-    try:
-
-        while True:
-            i = int(input('power: '))
-            p.ChangeDutyCycle(i)
-
-        while True:
-            for i in range(0, max_range + 1, 5):
-                print(i)
-                p.ChangeDutyCycle(i)
-                time.sleep(wait_time)
-            for i in range(max_range, -1, -5):
-                print(i)
-                p.ChangeDutyCycle(i)
-                time.sleep(wait_time)
-
-    except KeyboardInterrupt:
-        print('close')
-        p.ChangeDutyCycle(0)
-        p.finish()
+    p.test()
