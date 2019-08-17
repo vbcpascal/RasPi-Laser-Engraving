@@ -1,8 +1,30 @@
 # 使用帮助
 
-```shell
+```bash
 $ git clone https://github.com/vbcpascal/RasPi-Laser-Engraving
 ```
+
+## 文件说明
+
+`EasyDriver.py`：用于通过树莓派控制步进电机；
+
+`LaserCtrl.py`：用于通过树莓派控制激光头；
+
+`ImageReader.py`：用于读取并处理图片，提取轮廓；
+
+`Actions.py`：通过轮廓生成操作，并支持保存与读取；
+
+`Worker.py`：从操作控制雕刻机工作。
+
+### 使用方法
+
+``` bash
+$ python main.py -m test	# 测试步进电机移动
+$ python main.py -m work -f pics/pic.png		# 输入图片打印
+$ python main.py -m work -f cache/actions.npy	# 输入操作打印
+```
+
+
 
 ## 步进电机
 

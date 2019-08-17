@@ -61,7 +61,4 @@ class LaserCtrl(object):
 
 if __name__ == '__main__':
     p = LaserCtrl(pin_pwm=12)
-    max_range = 30
-    wait_time = 0.1
-
     p.test()

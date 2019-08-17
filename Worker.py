@@ -12,7 +12,7 @@ STOP_DELAY = 0.0001
 
 
 class Worker:
-    def __init__(self, work_size):
+    def __init__(self, work_size=2000):
         self.work_size = work_size
         self.stepper_x = ed.EasyDriver(
             pin_step=40, pin_dir=38, delay=STOP_DELAY)     # up
@@ -75,3 +75,19 @@ class Worker:
 
             elif act_mode == ac.ACT_CLOSE_LASER:
                 self.laser_close()
+
+    def test(self):
+        print('Test for raspi laser engraving.')
+        self.stepper_x.dir(CW)
+        self.stepper_y.dir(CW)
+
+        for i in range(0, 200):
+            self.stepper_x.step()
+            self.stepper_y.step()
+
+        self.stepper_x.dir(CCW)
+        self.stepper_y.dir(CCW)
+
+        for i in range(0, 200):
+            self.stepper_x.step()
+            self.stepper_y.step()

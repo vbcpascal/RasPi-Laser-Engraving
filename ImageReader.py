@@ -1,14 +1,7 @@
-import argparse
 import os
-import sys
-import time
-from enum import Enum
 
 import cv2 as cv
 import numpy as np
-from PIL import Image
-
-import Actions
 
 # modes of handling pinctures
 MODE_NONE = 0
@@ -79,6 +72,7 @@ class ImageReader:
         return self.__floyd_image
 
     def show_img(self, img, title='Image'):
+        img = cv.resize(img, (500, 500))
         cv.imshow(title, img)
         cv.waitKey(0)
         cv.destroyAllWindows()
@@ -100,3 +94,9 @@ if __name__ == "__main__":
     imw.test_draw_contours()
     contours = imw.get_contours()
     print(len(contours))
+
+    ''' 
+    imw.set_mode(MODE_GRAY)
+    floyd = imw.get_floyd()
+    imw.show_img(floyd)
+    '''
