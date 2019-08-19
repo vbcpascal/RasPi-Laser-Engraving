@@ -59,4 +59,5 @@ if __name__ == "__main__":
     imr.set_mode(ir.MODE_CONTOURS)
     acts = Actions()
     acts.add_contours(imr)
+    acts.save(os.path.join('cache', 'logo.npy'))
     print(acts.top_pop())
