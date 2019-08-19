@@ -1,3 +1,4 @@
+import argparse
 import os
 
 import cv2 as cv
@@ -89,7 +90,7 @@ class ImageReader:
 
 
 if __name__ == "__main__":
-    imw = ImageReader('pics\\logo.png')
+    imw = ImageReader(os.path.join('pics', 'logo.png'))
     imw.set_mode(MODE_CONTOURS)
     imw.test_draw_contours()
     contours = imw.get_contours()

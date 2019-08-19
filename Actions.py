@@ -1,3 +1,5 @@
+import os
+
 import numpy as np
 import ImageReader as ir
 
@@ -53,7 +55,7 @@ class Actions:
 
 
 if __name__ == "__main__":
-    imr = ir.ImageReader('pics\\logo.png')
+    imr = ir.ImageReader(os.path.join('pics', 'logo.png'))
     imr.set_mode(ir.MODE_CONTOURS)
     acts = Actions()
     acts.add_contours(imr)
