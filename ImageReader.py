@@ -15,7 +15,6 @@ class ImageReader:
         self.__work_size = work_size
         self.__mode = MODE_NONE
         self.__gray_image = self.__read_cvt_pic(filename)
-        print(self.__gray_image.shape)
 
     def __read_cvt_pic(self, filename):
         print('Load image file:', filename)
@@ -92,9 +91,9 @@ class ImageReader:
 if __name__ == "__main__":
     imw = ImageReader(os.path.join('pics', 'logo.png'))
     imw.set_mode(MODE_CONTOURS)
-    imw.test_draw_contours()
+    # imw.test_draw_contours()
     contours = imw.get_contours()
-    print(len(contours))
+    print('number of contours: ', len(contours))
 
     ''' 
     imw.set_mode(MODE_GRAY)
