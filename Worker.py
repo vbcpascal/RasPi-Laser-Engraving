@@ -71,7 +71,10 @@ class Worker:
             act = self.actions.top_pop()
             act_mode = act[0]
             i += 1
-            pba.update(i)
+            try:
+                pba.update(i)
+            except:
+                print(i)
 
             if act_mode == ac.ACT_MOVE or act_mode == ac.ACT_WORK:
                 _, x, y = act
@@ -82,6 +85,8 @@ class Worker:
 
             elif act_mode == ac.ACT_CLOSE_LASER:
                 self.laser_close()
+
+        pba.finish()
 
     def test(self):
         print('Test for raspi laser engraving.')
