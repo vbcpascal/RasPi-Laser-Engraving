@@ -1,7 +1,6 @@
 import os
 
 import numpy as np
-import ImageReader as ir
 
 # modes of actions
 ACT_MOVE = 0
@@ -51,6 +50,7 @@ class Actions:
         self.work_list = np.load(filename, allow_pickle=True)
 
     def add_contours(self, reader):
+        import ImageReader as ir
         assert(reader.get_mode() == ir.MODE_CONTOURS)
         contours = reader.get_contours()
         self.group_length = len(contours)
@@ -70,11 +70,12 @@ class Actions:
 
 
 if __name__ == "__main__":
+    import ImageReader as ir
     imr = ir.ImageReader(os.path.join('pics', 'logo.png'))
     imr.set_mode(ir.MODE_CONTOURS)
     acts = Actions()
     acts.add_contours(imr)
     acts.save(os.path.join('cache', 'logo.npy'))
     print(acts.top_pop())
-    print(acts.length())
+    print(acts.group_len())
     print(len(acts.work_list))
