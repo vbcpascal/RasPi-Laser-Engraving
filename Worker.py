@@ -64,6 +64,7 @@ class Worker:
 
     def eval(self):
         acts_len = self.actions.len()
+        print(acts_len)
         pba = ProgressBar(acts_len).start()
         i = 1
 
