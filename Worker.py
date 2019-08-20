@@ -63,7 +63,7 @@ class Worker:
         self.pos = (x, y)
 
     def eval(self):
-        acts_len = self.actions.len()
+        acts_len = self.actions.get_len()
         print(acts_len)
         pba = ProgressBar(acts_len).start()
         i = 1

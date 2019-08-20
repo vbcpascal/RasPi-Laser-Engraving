@@ -34,10 +34,10 @@ class Actions:
             self.group_length -= 1
         return act
 
-    def len(self):
+    def get_len(self):
         return self.length
 
-    def group_len(self):
+    def get_group_len(self):
         return self.group_length
 
     def empty(self):
@@ -48,6 +48,9 @@ class Actions:
 
     def load(self, filename):
         self.work_list = np.load(filename, allow_pickle=True)
+        self.length = len(self.work_list)
+        self.group_length = len(
+            list(filter(lambda x: x[0] == ACT_CLOSE_LASER, self.work_list)))
 
     def add_contours(self, reader):
         import ImageReader as ir
@@ -77,5 +80,5 @@ if __name__ == "__main__":
     acts.add_contours(imr)
     acts.save(os.path.join('cache', 'logo.npy'))
     print(acts.top_pop())
-    print(acts.group_len())
+    print(acts.get_group_len())
     print(len(acts.work_list))
