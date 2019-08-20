@@ -95,7 +95,7 @@ if __name__ == "__main__":
     contours = imw.get_contours()
     print('number of contours: ', len(contours))
 
-    ''' 
+    '''
     imw.set_mode(MODE_GRAY)
     floyd = imw.get_floyd()
     imw.show_img(floyd)

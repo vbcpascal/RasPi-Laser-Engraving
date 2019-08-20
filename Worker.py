@@ -2,6 +2,7 @@ import numpy as np
 import Actions as ac
 import EasyDriver as ed
 import LaserCtrl as lc
+from progressbar import *
 
 # constant
 CW = True       # clockwise
@@ -62,9 +63,15 @@ class Worker:
         self.pos = (x, y)
 
     def eval(self):
+        acts_len = self.actions.len()
+        pba = ProgressBar(acts_len).start()
+        i = 1
+
         while not self.actions.empty():
             act = self.actions.top_pop()
             act_mode = act[0]
+            i += 1
+            pba.update(i)
 
             if act_mode == ac.ACT_MOVE or act_mode == ac.ACT_WORK:
                 _, x, y = act
