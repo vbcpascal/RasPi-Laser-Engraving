@@ -13,7 +13,7 @@ STOP_DELAY = 0.00025
 
 
 class Worker:
-    def __init__(self, work_size=2000):
+    def __init__(self, work_size=1800):
         self.work_size = work_size
         self.stepper_x = ed.EasyDriver(
             pin_step=40, pin_dir=38, delay=STOP_DELAY)     # up
