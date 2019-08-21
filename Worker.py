@@ -74,7 +74,7 @@ class Worker:
 
         pba.finish()
 
-    def eval_one(act):
+    def eval_one(self, act):
         act_mode = act[0]
         i += 1
         try:
