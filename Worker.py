@@ -84,7 +84,7 @@ class Worker:
         act_mode = act[0]
 
         if act_mode == ac.ACT_MOVE or act_mode == ac.ACT_WORK:
-            _, x, y = act
+            _, y, x = act
             self.move_to(x, y)
 
         elif act_mode == ac.ACT_OPEN_LASER:

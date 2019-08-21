@@ -11,7 +11,7 @@ MODE_GRAY = 2
 
 
 class ImageReader:
-    def __init__(self, filename, work_size=800):
+    def __init__(self, filename, work_size=1800):
         self.__work_size = work_size
         self.__mode = MODE_NONE
         self.__gray_image = self.__read_cvt_pic(filename)
