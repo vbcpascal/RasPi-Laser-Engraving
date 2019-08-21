@@ -58,7 +58,7 @@ class Worker:
             if error < 0:
                 y_step_f()
                 error = error + dx
-        x_step_f()
+            x_step_f()
 
         self.pos = (x, y)
 
