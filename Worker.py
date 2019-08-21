@@ -39,6 +39,7 @@ class Worker:
 
     def move_to(self, x, y):
         # Bresenham Algorithm to draw a line
+        print(self.pos, x, y)
         self.stepper_x.dir(CW) if self.pos[0] < x else self.stepper_x.dir(CCW)
         self.stepper_y.dir(CW) if self.pos[1] < y else self.stepper_y.dir(CCW)
         dx = abs(x - self.pos[0])
