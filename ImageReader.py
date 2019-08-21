@@ -72,7 +72,7 @@ class ImageReader:
         return self.__floyd_image
 
     def show_img(self, img, title='Image'):
-        img = cv.resize(img, (500, 500))
+        img = cv.resize(img, (1000, 1000))
         cv.imshow(title, img)
         cv.waitKey(0)
         cv.destroyAllWindows()
@@ -83,15 +83,15 @@ class ImageReader:
             raise('The mode should be MODE_CONTOURS to draw contours.')
         height, width = self.__gray_image.shape
         contours_img = np.zeros((height, width), np.uint8)
-        cv.drawContours(contours_img, self.__contours, -1, (255, 255, 255), 1)
+        cv.drawContours(contours_img, self.__contours, -1, (255, 255, 255), 3)
         self.show_img(contours_img, 'Contours')
         return
 
 
 if __name__ == "__main__":
-    imw = ImageReader(os.path.join('pics', 'logo.png'))
+    imw = ImageReader(os.path.join('pics', 'github.png'))
     imw.set_mode(MODE_CONTOURS)
-    # imw.test_draw_contours()
+    imw.test_draw_contours()
     contours = imw.get_contours()
     print('number of contours: ', len(contours))
 

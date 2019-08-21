@@ -1,6 +1,5 @@
 .ipynb_checkpoints
 __pycache__
 server/db.sqlite3
-*.png
 *.sqlite3
 server/db.sqlite3

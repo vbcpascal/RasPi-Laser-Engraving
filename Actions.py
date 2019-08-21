@@ -74,11 +74,11 @@ class Actions:
 
 if __name__ == "__main__":
     import ImageReader as ir
-    imr = ir.ImageReader(os.path.join('pics', 'logo.png'))
+    imr = ir.ImageReader(os.path.join('pics', 'github.png'))
     imr.set_mode(ir.MODE_CONTOURS)
     acts = Actions()
     acts.add_contours(imr)
-    acts.save(os.path.join('cache', 'logo.npy'))
+    acts.save(os.path.join('cache', 'github.npy'))
     print(acts.top_pop())
     print(acts.get_group_len())
     print(len(acts.work_list))
