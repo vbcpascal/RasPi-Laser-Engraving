@@ -64,6 +64,9 @@ class EasyDriver(object):
         gpio.output(self.pin_step, False)
         time.sleep(self.delay)
 
+    def sleep(self):
+        time.sleep(self.delay)
+
     def dir(self, dir):
         # print("change to: " + str(dir))
         gpio.output(self.pin_dir, dir)

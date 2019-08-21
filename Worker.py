@@ -61,6 +61,8 @@ class Worker:
             if error < 0:
                 y_step_f()
                 error = error + dx
+            else:
+                self.stepper_x.sleep()
             x_step_f()
 
     def eval(self):
