@@ -115,21 +115,27 @@ if __name__ == '__main__':
     CW = True       # clockwise
     CCW = False     # counterclockwise
 
-    stepper = EasyDriver(pin_step=40, pin_dir=38, delay=0.01)
+    stepper_x = EasyDriver(pin_step=40, pin_dir=38, delay=0.01)
+    stepper_y = EasyDriver(pin_step=33, pin_dir=31, delay=0.01)
 
     try:
-        stepper.dir(CCW)
+        stepper_x.dir(CW)
+        stepper_y.dir(CW)
         for i in range(0, 500):
-            stepper.step()
+            stepper_y.step()
+            stepper_x.step()
 
         print('change')
 
-        stepper.dir(CW)
+        stepper_x.dir(CCW)
+        stepper_y.dir(CCW)
         for i in range(0, 500):
-            stepper.step()
+            stepper_y.step()
+            stepper_x.step()
     except KeyboardInterrupt:
         pass
 
     # clean up
     print('close')
-    stepper.finish()
+    stepper_x.finish()
+    stepper_y.finish()
