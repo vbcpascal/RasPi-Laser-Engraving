@@ -115,8 +115,8 @@ if __name__ == '__main__':
     CW = True       # clockwise
     CCW = False     # counterclockwise
 
-    stepper_x = EasyDriver(pin_step=40, pin_dir=38, delay=0.01)
-    stepper_y = EasyDriver(pin_step=33, pin_dir=31, delay=0.01)
+    stepper_x = EasyDriver(pin_step=40, pin_dir=38, delay=0.0001)
+    stepper_y = EasyDriver(pin_step=33, pin_dir=31, delay=0.0001)
 
     try:
         stepper_x.dir(CW)
@@ -138,4 +138,3 @@ if __name__ == '__main__':
     # clean up
     print('close')
     stepper_x.finish()
-    stepper_y.finish()
