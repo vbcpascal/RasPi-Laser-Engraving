@@ -43,6 +43,7 @@ class Worker:
         self.stepper_y.dir(CW) if self.pos[1] < y else self.stepper_y.dir(CCW)
         dx = abs(x - self.pos[0])
         dy = abs(y - self.pos[1])
+        print(dx, dy)
 
         x_step_f = self.stepper_x.step
         y_step_f = self.stepper_y.step
