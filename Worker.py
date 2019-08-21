@@ -45,6 +45,8 @@ class Worker:
         dx = abs(x - self.pos[0])
         dy = abs(y - self.pos[1])
 
+        self.pos = [x, y]
+
         x_step_f = self.stepper_x.step
         y_step_f = self.stepper_y.step
 
@@ -60,8 +62,6 @@ class Worker:
                 y_step_f()
                 error = error + dx
             x_step_f()
-
-        self.pos = [x, y]
 
     def eval(self):
         acts_len = self.actions.get_len()
