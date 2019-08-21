@@ -3,5 +3,4 @@ __pycache__
 server/db.sqlite3
 *.png
 *.sqlite3
-tmp.py
 server/db.sqlite3
