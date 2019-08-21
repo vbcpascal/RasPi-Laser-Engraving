@@ -9,7 +9,7 @@ CW = True       # clockwise
 CCW = False     # counterclockwise
 
 WORK_DELAY = 0.01
-STOP_DELAY = 0.0005
+STOP_DELAY = 0.0001
 
 
 class Worker:
