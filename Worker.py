@@ -69,6 +69,11 @@ class Worker:
         i = 1
 
         while not self.actions.empty():
+            i += 1
+            try:
+                pba.update(i)
+            except:
+                print(i)
             act = self.actions.top_pop()
             self.eval_one(act)
 
@@ -76,11 +81,6 @@ class Worker:
 
     def eval_one(self, act):
         act_mode = act[0]
-        i += 1
-        try:
-            pba.update(i)
-        except:
-            print(i)
 
         if act_mode == ac.ACT_MOVE or act_mode == ac.ACT_WORK:
             _, x, y = act
