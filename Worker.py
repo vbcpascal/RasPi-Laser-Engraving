@@ -20,7 +20,7 @@ class Worker:
         self.stepper_y = ed.EasyDriver(
             pin_step=33, pin_dir=31, delay=STOP_DELAY)     # down
         self.stepper_x.dir(CW)
-        self.stepper_y.dir(CCW)
+        self.stepper_y.dir(CW)
         self.laser = lc.LaserCtrl(pin_pwm=12)
         self.laser_close()
         self.actions = ac.Actions()
