@@ -98,13 +98,13 @@ class Worker:
         self.stepper_x.dir(CW)
         self.stepper_y.dir(CW)
 
-        for i in range(0, 1000):
+        for i in range(0, 2000):
             self.stepper_x.step()
             self.stepper_y.step()
 
         self.stepper_x.dir(CCW)
         self.stepper_y.dir(CCW)
 
-        for i in range(0, 1000):
+        for i in range(0, 2000):
             self.stepper_x.step()
             self.stepper_y.step()
