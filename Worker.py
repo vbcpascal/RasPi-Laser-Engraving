@@ -24,7 +24,7 @@ class Worker:
         self.laser = lc.LaserCtrl(pin_pwm=12)
         self.laser_close()
         self.actions = ac.Actions()
-        self.pos = (0, 0)
+        self.pos = [0, 0]
 
     def laser_open(self):
         self.stepper_x.set_delay(WORK_DELAY)
@@ -60,7 +60,7 @@ class Worker:
                 error = error + dx
             x_step_f()
 
-        self.pos = (x, y)
+        self.pos = [x, y]
 
     def eval(self):
         acts_len = self.actions.get_len()
