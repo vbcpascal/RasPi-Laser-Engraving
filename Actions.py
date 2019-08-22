@@ -75,7 +75,7 @@ class Actions:
 
 if __name__ == "__main__":
     import ImageReader as ir
-    name = 'pku'
+    name = 'pku2'
     imr = ir.ImageReader(os.path.join('pics', name + '.png'))
     imr.set_mode(ir.MODE_CONTOURS)
     acts = Actions()
