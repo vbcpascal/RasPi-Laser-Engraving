@@ -91,7 +91,7 @@ class Worker:
 
         elif act_mode == ac.ACT_OPEN_LASER:
             self.laser_open()
-            self.stepper_x.wait()
+            self.stepper_x.wait(3)
 
         elif act_mode == ac.ACT_CLOSE_LASER:
             self.laser_close()
