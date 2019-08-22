@@ -66,9 +66,10 @@ class Actions:
             for point in contour[1:]:
                 self.push(ACT_WORK, point[0])
 
+            self.push(ACT_WORK, start_point)
             self.push(ACT_CLOSE_LASER)
-        self.push(ACT_MOVE, [0, 0])
 
+        self.push(ACT_MOVE, [0, 0])
         self.length = len(self.work_list)
 
 
