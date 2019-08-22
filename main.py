@@ -15,7 +15,7 @@ if __name__ == '__main__':
                         help='Mode: test, work.')
     parser.add_argument('-f', type=str, default='pics/pic.png',
                         help='The file name of picture or .npy file.')
-    parser.add_argument('-n', type=int, default=2000,
+    parser.add_argument('-n', type=int, default=1800,
                         help='Steps of stepping motor.')
     args = parser.parse_args()
 

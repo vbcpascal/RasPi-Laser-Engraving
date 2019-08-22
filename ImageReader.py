@@ -89,7 +89,7 @@ class ImageReader:
 
 
 if __name__ == "__main__":
-    imw = ImageReader(os.path.join('pics', 'star.png'))
+    imw = ImageReader(os.path.join('pics', 'pku.png'))
     imw.set_mode(MODE_CONTOURS)
     imw.test_draw_contours()
     contours = imw.get_contours()

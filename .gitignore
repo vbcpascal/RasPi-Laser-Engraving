@@ -1,5 +1,2 @@
 .ipynb_checkpoints
 __pycache__
-server/db.sqlite3
-*.sqlite3
-server/db.sqlite3

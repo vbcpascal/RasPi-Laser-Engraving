@@ -8,7 +8,7 @@ from progressbar import *
 CW = True       # clockwise
 CCW = False     # counterclockwise
 
-WORK_DELAY = 0.01
+WORK_DELAY = 0.005
 STOP_DELAY = 0.00025
 
 
