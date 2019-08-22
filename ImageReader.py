@@ -72,7 +72,7 @@ class ImageReader:
         return self.__floyd_image
 
     def show_img(self, img, title='Image'):
-        img = cv.resize(img, (1000, 1000))
+        img = cv.resize(img, (700, 700))
         cv.imshow(title, img)
         cv.waitKey(0)
         cv.destroyAllWindows()
@@ -89,7 +89,7 @@ class ImageReader:
 
 
 if __name__ == "__main__":
-    imw = ImageReader(os.path.join('pics', 'pku2.png'))
+    imw = ImageReader(os.path.join('pics', 'circle.png'))
     imw.set_mode(MODE_CONTOURS)
     imw.test_draw_contours()
     contours = imw.get_contours()
