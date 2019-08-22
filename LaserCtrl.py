@@ -32,7 +32,7 @@ class LaserCtrl(object):
         self.status = CLOSED
 
     def open(self):
-        self.__change_duty_cycle(70)
+        self.__change_duty_cycle(100)
         self.status = OPENED
 
     def close(self):

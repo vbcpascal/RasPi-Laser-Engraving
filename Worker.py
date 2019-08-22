@@ -76,7 +76,7 @@ class Worker:
             try:
                 pba.update(i)
             except:
-                print(i)
+                pass
             act = self.actions.top_pop()
             self.eval_one(act)
 
