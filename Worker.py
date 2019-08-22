@@ -62,7 +62,7 @@ class Worker:
                 y_step_f()
                 error = error + dx
             else:
-                self.stepper_x.sleep()
+                self.stepper_x.wait()
             x_step_f()
 
     def eval(self):
@@ -91,7 +91,7 @@ class Worker:
 
         elif act_mode == ac.ACT_OPEN_LASER:
             self.laser_open()
-            self.stepper_x.sleep()
+            self.stepper_x.wait()
 
         elif act_mode == ac.ACT_CLOSE_LASER:
             self.laser_close()
