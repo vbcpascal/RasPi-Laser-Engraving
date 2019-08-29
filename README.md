@@ -14,21 +14,21 @@ $ git clone https://github.com/vbcpascal/RasPi-Laser-Engraving
 
 ​	电压：5V
 
-​	GND $\to$ GPIO 39（GND）
+​	GND -> GPIO 39（GND）
 
-​	STP $\to$ GPIO 40（BCM 21）
+​	STP -> GPIO 40（BCM 21）
 
-​	DIR $\to$ GPIO 38（BCM 20）
+​	DIR -> GPIO 38（BCM 20）
 
 **上方电机 stepper_y 对应驱动板**
 
 ​	电压：5V
 
-​	GND $\to$ GPIO 34（GND）
+​	GND -> GPIO 34（GND）
 
-​	STP $\to$ GPIO 33（BCM 13）
+​	STP -> GPIO 33（BCM 13）
 
-​	DIR $\to$ GPIO 31（BCM 6）
+​	DIR -> GPIO 31（BCM 6）
 
 **激光 laser**
 
@@ -75,16 +75,12 @@ $ python ImageReader.py pics/base_shape.png
 
 ``` bash
 $ python Actions.py pics/base_shape.png		# 生成操作并保存到 cache 文件夹
-Load image file: ./pics/base_shape.png
-[0, 248, 1785]	# 第一个操作
-216				# 总轮廓数
-13297			# 总操作数
 ```
 
 **加载并打印操作文件**
 
 ``` bash
-$ python main.py -m work -f cache/base_shape.png	# 输入操作打印
+$ python main.py -m work -f pics/base_shape.png	# 输入操作打印
 ```
 
 如果本地环境没有 OpenCV，可以使用`main_lite.py`代替`main.py`处理操作。

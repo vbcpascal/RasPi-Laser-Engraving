@@ -4,6 +4,9 @@ import os
 import cv2 as cv
 import numpy as np
 
+__author__ = "vbcpascal"
+__version__ = "1.0"
+
 # modes of handling pinctures
 MODE_NONE = 0
 MODE_CONTOURS = 1
@@ -71,20 +74,20 @@ class ImageReader:
             raise('The mode should be MODE_GRAY to get floyd.')
         return self.__floyd_image
 
-    def show_img(self, img, title='Image'):
-        img = cv.resize(img, (700, 700))
-        cv.imshow(title, img)
-        cv.waitKey(0)
-        cv.destroyAllWindows()
-        return
-
     def test_draw_contours(self):
         if self.__mode != MODE_CONTOURS:
             raise('The mode should be MODE_CONTOURS to draw contours.')
         height, width = self.__gray_image.shape
         contours_img = np.zeros((height, width), np.uint8)
         cv.drawContours(contours_img, self.__contours, -1, (255, 255, 255), 3)
-        self.show_img(contours_img, 'Contours')
+        self.__show_img(contours_img, 'Contours')
+        return
+
+    def __show_img(self, img, title='Image'):
+        img = cv.resize(img, (700, 700))
+        cv.imshow(title, img)
+        cv.waitKey(0)
+        cv.destroyAllWindows()
         return
 
 

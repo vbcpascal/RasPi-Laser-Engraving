@@ -3,6 +3,9 @@ import os
 
 import numpy as np
 
+__author__ = "vbcpascal"
+__version__ = "1.0"
+
 # modes of actions
 ACT_MOVE = 0
 ACT_WORK = 1

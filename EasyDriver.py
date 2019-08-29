@@ -8,7 +8,7 @@ import time
 import sys
 
 __author__ = "vbcpascal"
-__version__ = "0.1"
+__version__ = "1.0"
 
 
 class EasyDriver(object):
@@ -57,10 +57,9 @@ class EasyDriver(object):
             gpio.output(self.pin_enable, False)
 
     def step(self):
-        # print("step true")
         gpio.output(self.pin_step, True)
         time.sleep(self.delay)
-        # print("step false")
+
         gpio.output(self.pin_step, False)
         time.sleep(self.delay)
 
@@ -125,7 +124,7 @@ if __name__ == '__main__':
     try:
         stepper_x.dir(CW)
         stepper_y.dir(CW)
-        for i in range(0, 500):
+        for i in range(0, 1800):
             stepper_y.step()
             stepper_x.step()
 
@@ -133,7 +132,7 @@ if __name__ == '__main__':
 
         stepper_x.dir(CCW)
         stepper_y.dir(CCW)
-        for i in range(0, 500):
+        for i in range(0, 1800):
             stepper_y.step()
             stepper_x.step()
     except KeyboardInterrupt:

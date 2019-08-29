@@ -7,7 +7,7 @@ import RPi.GPIO as gpio
 import time
 
 __author__ = 'vbcpascal'
-__version__ = '0.1'
+__version__ = '1.0'
 
 OPENED = True
 CLOSED = False
@@ -52,8 +52,11 @@ class LaserCtrl(object):
     def test(self):
         try:
             while True:
-                i = int(input('power: '))
-                self.change_duty_cycle(i)
+                try:
+                    i = int(input('power: '))
+                    self.change_duty_cycle(i)
+                except:
+                    print('error input. Please input a number between 1 and 100.')
         except KeyboardInterrupt:
             print('close')
             self.finish()
