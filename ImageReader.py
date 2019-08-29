@@ -89,8 +89,9 @@ class ImageReader:
 
 
 if __name__ == "__main__":
-    parser = argparse.ArgumentParser(description='Read pictures.')
-    parser.add_argument('file', metavar='filename',
+    parser = argparse.ArgumentParser(
+        description='Read pictures and show contours.')
+    parser.add_argument('file', metavar='file',
                         type=str, help='File name to read.')
     args = parser.parse_args()
 

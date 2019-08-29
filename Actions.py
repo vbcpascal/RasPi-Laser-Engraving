@@ -77,7 +77,8 @@ class Actions:
 if __name__ == "__main__":
     import ImageReader as ir
 
-    parser = argparse.ArgumentParser(description='Read pictures.')
+    parser = argparse.ArgumentParser(
+        description='Read pictures and save Actions to "./cache".')
     parser.add_argument('file', metavar='filename',
                         type=str, help='File name to read.')
     args = parser.parse_args()

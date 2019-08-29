@@ -16,96 +16,48 @@ $ git clone https://github.com/vbcpascal/RasPi-Laser-Engraving
 
 `Worker.py`：从操作控制雕刻机工作。
 
+详细介绍可见 `Files.md`。
+
 ### 使用方法
 
+**一般使用**
+
 ``` bash
+$ python LaserCtrl.py		# 测试激光头
 $ python main.py -m test	# 测试步进电机移动
-$ python main.py -m work -f pics/pic.png		# 输入图片打印
-$ python main.py -m work -f cache/actions.npy	# 输入操作打印
+$ python main.py -m work -f pics/base_shape.png		# 输入图片打印
+$ python main.py -m work -f cache/base_shape.png	# 输入操作打印
 ```
 
+**预览打印效果**
 
-
-## 步进电机
-
-### EasyDriver.py
-
-用于通过EasyDriver控制步进电机。包含类EasyDriver：
-
-#### 构造函数参数
-```makefile
-pin_step:   GPIO-pin for the EasyDriver Step
-pin_dir:    GPIO-pin for the EasyDriver Direction
-pin_ms1:    GPIO-pin for the EasyDriver MicroStep 1
-pin_ms2:    GPIO-pin for the EasyDriver MicroStep 2
-pin_slp:    GPIO-pin for the EasyDriver Sleep
-pin_rst:    GPIO-pin for the EasyDriver Reset
-pin_enable: GPIO-pin for the EasyDriver Enable
-delay:      Delay time between steps
-gpio_mode:  Use "BOARD" or "BCM"
-```
-####  成员函数
-```python
-step(self)
-dir(self, dir)
-set_full_step(self)
-set_half_step(self)
-set_quarter_step(self)
-set_eight_step(self)
-slp(self)
-wake(self)
-enable(self)
-disable(self)
-rst(self)
-set_delay(self, delay)
-finish(self)
+``` bash
+$ python ImageReader.py pics/base_shape.png
 ```
 
-将EasyDriver驱动板按如下方式连接：
+**生成操作**
 
-```makefile
-Left_Stepper:
-  	GND -> GPIO 39
-  	DIR -> GPIO 38（BCM 20）
-  	STE -> GPIO 40（BCM 21）
-Right_Stepper:
-  	GND -> GPIO 34
-  	DIR -> GPIO 31（BCM 6）
-  	STE -> GPIO 33（BCM 13）
+``` bash
+$ python Actions.py pics/base_shape.png		# 生成操作并保存到 cache 文件夹
+Load image file: ./pics/base_shape.png
+[0, 248, 1785]	# 第一个操作
+216				# 总轮廓数
+13297			# 总操作数
 ```
 
+**加载并打印操作文件**
 
-
-### LaserCtrl.py
-
-用于通过PWM控制激光。将12V激光头按如下方式连接：
-
-``` makefile
-Laser:
-	PWM -> GPIO 12
-	GND -> GPIO 14
+``` bash
+$ python main.py -m work -f cache/base_shape.png	# 输入操作打印
 ```
 
-提供类LaserCtrl：
-
-#### 构造函数参数
-
-```makefile
-pin_pwm:    GPIO-pin for PWM
-frequency:  frequency for PWM
-gpio_mode:  Use "BOARD" or "BCM"
-```
-
-#### 成员函数
-
-```python
-ChangeDutyCycle(self, i)
-finish(self)
-```
+如果本地环境没有 OpenCV，可以使用`main_lite.py`代替`main.py`处理操作。
 
 
 
 ## 远程控制
+
+远程控制……只是一个框架，不算完善吧。
 
 ### 安装django、nginx、uwsgi
 
@@ -145,7 +97,7 @@ $ python3 manage.py runserver
 
 访问http://127.0.0.1:8001/ 项目正常（出现上传图片界面）说明django可以正常运行。
 
-#### 链接
+#### 连接
 
 ```shell
 $ uwsgi --http :8001 --plugin python --module server.wsgi
@@ -157,6 +109,5 @@ $ uwsgi --http :8001 --plugin python --module server.wsgi
 
 https://github.com/davef21370/EasyDriver
 https://github.com/rfverbruggen/easydriverpy
-
 
 
