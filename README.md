@@ -4,6 +4,42 @@
 $ git clone https://github.com/vbcpascal/RasPi-Laser-Engraving
 ```
 
+**注意：使用激光请佩戴防护镜，避免直射及直接观察！！**
+
+
+
+## 连线说明
+
+**底部电机 stepper_x 对应驱动板**
+
+​	电压：5V
+
+​	GND $\to$ GPIO 39（GND）
+
+​	STP $\to$ GPIO 40（BCM 21）
+
+​	DIR $\to$ GPIO 38（BCM 20）
+
+**上方电机 stepper_y 对应驱动板**
+
+​	电压：5V
+
+​	GND $\to$ GPIO 34（GND）
+
+​	STP $\to$ GPIO 33（BCM 13）
+
+​	DIR $\to$ GPIO 31（BCM 6）
+
+**激光 laser**
+
+​	电压：12V
+
+​	PWM $\to$ GPIO 12
+
+​	TTL- $\to$ GPIO 14（GND）
+
+
+
 ## 文件说明
 
 `EasyDriver.py`：用于通过树莓派控制步进电机；
@@ -52,6 +88,22 @@ $ python main.py -m work -f cache/base_shape.png	# 输入操作打印
 ```
 
 如果本地环境没有 OpenCV，可以使用`main_lite.py`代替`main.py`处理操作。
+
+
+
+## 常见问题说明
+
+**Q：下方电机移动明显减慢**
+
+A：移除电机上方较大块亚克力板，减轻负重（推荐）；或适当增大电压；
+
+**Q：打印圆不圆，或封闭处衔接不到位**
+
+A：电机精确度有限，属于正常现象；
+
+**Q：打印出来痕迹不清晰，或纸被烧漏**
+
+A：根据材料修改 `LaserCtrl.py` 文件中 `self.change_duty_cycle(85)` 的数值（从1至100），其实这本应该是一个可指定的参数。
 
 
 
