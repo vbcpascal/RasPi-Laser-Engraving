@@ -18,9 +18,9 @@ __init__(
 )
 
 step()					# 进行一次移动
-dir(, dir)				# 调节方向
-wait(, n=1)				# 进行一次等待（用于短暂停顿）
-set_delay(, delay)		# 修改步进时间间隔（调节速度）
+dir(dir)				# 调节方向
+wait(n=1)				# 进行一次等待（用于短暂停顿）
+set_delay(delay)		# 修改步进时间间隔（调节速度）
 set_full_step()	
 set_half_step()
 set_quarter_step()
