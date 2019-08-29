@@ -8,12 +8,15 @@ from work.models import Image, Text
 import os
 
 # Create your views here.
+
+
 def index(request):
     context = {}
     form = ProfileForm
     context['form'] = form
     template = loader.get_template('work/index.html')
     return HttpResponse(template.render(context, request))
+
 
 def print(request):
     if request.method == 'POST':
@@ -25,8 +28,9 @@ def print(request):
             img.user = f.cleaned_data['user']
             img.save()
 
-            os.system('python3 ' + os.path.join('../', 'hello.py'))
-            
+            os.system('python3 ' + os.path.join('../', 'main.py ') +
+                      '-m work -f ' + os.path.join('./', 'uploads/') + img.pic.name)
+
             context = {}
             form = PrintForm
             context['form'] = form
