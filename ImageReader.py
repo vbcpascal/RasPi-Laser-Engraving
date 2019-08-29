@@ -89,14 +89,13 @@ class ImageReader:
 
 
 if __name__ == "__main__":
-    imw = ImageReader(os.path.join('pics', 'circle.png'))
-    imw.set_mode(MODE_CONTOURS)
-    imw.test_draw_contours()
-    contours = imw.get_contours()
-    print('number of contours: ', len(contours))
+    parser = argparse.ArgumentParser(description='Read pictures.')
+    parser.add_argument('file', metavar='filename',
+                        type=str, help='File name to read.')
+    args = parser.parse_args()
 
-    '''
-    imw.set_mode(MODE_GRAY)
-    floyd = imw.get_floyd()
-    imw.show_img(floyd)
-    '''
+    imr = ImageReader(args.file)
+    imr.set_mode(MODE_CONTOURS)
+    imr.test_draw_contours()
+    contours = imr.get_contours()
+    print('number of contours: ', len(contours))

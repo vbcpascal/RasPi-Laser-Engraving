@@ -1,3 +1,4 @@
+import argparse
 import os
 
 import numpy as np
@@ -75,8 +76,14 @@ class Actions:
 
 if __name__ == "__main__":
     import ImageReader as ir
-    name = 'circle'
-    imr = ir.ImageReader(os.path.join('pics', name + '.png'))
+
+    parser = argparse.ArgumentParser(description='Read pictures.')
+    parser.add_argument('file', metavar='filename',
+                        type=str, help='File name to read.')
+    args = parser.parse_args()
+    name = os.path.basename(args.file).split('.')[0]
+
+    imr = ir.ImageReader(args.file)
     imr.set_mode(ir.MODE_CONTOURS)
     acts = Actions()
     acts.add_contours(imr)

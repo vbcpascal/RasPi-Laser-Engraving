@@ -32,17 +32,17 @@ class LaserCtrl(object):
         self.status = CLOSED
 
     def open(self):
-        self.__change_duty_cycle(93)
+        self.change_duty_cycle(93)
         self.status = OPENED
 
     def close(self):
-        self.__change_duty_cycle(0)
+        self.change_duty_cycle(0)
         self.status = CLOSED
 
     def get_status(self):
         return self.status
 
-    def __change_duty_cycle(self, i):
+    def change_duty_cycle(self, i):
         self.p.ChangeDutyCycle(i)
 
     def finish(self):
@@ -53,7 +53,7 @@ class LaserCtrl(object):
         try:
             while True:
                 i = int(input('power: '))
-                self.__change_duty_cycle(i)
+                self.change_duty_cycle(i)
         except KeyboardInterrupt:
             print('close')
             self.finish()

@@ -1,8 +1,9 @@
 import numpy as np
+from progressbar import *
+
 import Actions as ac
 import EasyDriver as ed
 import LaserCtrl as lc
-from progressbar import *
 
 # constant
 CW = True       # clockwise
